@@ -1,0 +1,6 @@
+{
+  "name": "Meu Controle Financeiro",
+  "description": "Controle financeiro pessoal e cartão de crédito compartilhado, contas a pagar e receber, responsáveis e previsão orçamentária.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

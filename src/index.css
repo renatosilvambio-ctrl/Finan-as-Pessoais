@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-brand-primary: #1677E8;
+    --color-brand-dark: #123B67;
+    --color-brand-light: #E8F2FF;
+    --color-brand-bg: #F4F7FB;
+    --color-brand-success: #16A765;
+  }
+
+  /* Smooth mobile touches */
+  html {
+    -webkit-tap-highlight-color: transparent;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #F4F7FB;
+    color: #17212F;
+  }
+}
+
+/* Safe area insets for notched iPhones & Android navigation bars */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 16px);
+}
+
+/* Clean print styling for PDF / WhatsApp reports */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

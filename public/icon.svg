@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D3D2E" />
+      <stop offset="50%" stop-color="#2D8A6A" />
+      <stop offset="100%" stop-color="#5AB89A" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0D3D2E" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  <!-- Background with safe margin for maskable icon -->
+  <rect width="512" height="512" rx="112" fill="url(#grad)" />
+  <!-- Card element -->
+  <g filter="url(#shadow)">
+    <rect x="96" y="140" width="320" height="196" rx="24" fill="#FFFFFF" fill-opacity="0.95" />
+    <rect x="96" y="184" width="320" height="36" fill="#0D3D2E" />
+    <rect x="136" y="250" width="70" height="18" rx="6" fill="#2D8A6A" />
+    <circle cx="340" cy="275" r="22" fill="#5AB89A" fill-opacity="0.8" />
+    <circle cx="370" cy="275" r="22" fill="#2D8A6A" fill-opacity="0.8" />
+  </g>
+  <!-- Coin / Growth overlay -->
+  <g transform="translate(230, 260)">
+    <circle cx="60" cy="60" r="54" fill="#5AB89A" stroke="#FFFFFF" stroke-width="8" />
+    <text x="60" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" fill="#0D3D2E" text-anchor="middle">R$</text>
+  </g>
+</svg>
