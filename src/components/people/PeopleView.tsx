@@ -227,9 +227,9 @@ export const PeopleView: React.FC = () => {
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="py-4 space-y-3">
+            <form onSubmit={handleSubmit} className="py-4 space-y-3.5">
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Nome *
                 </label>
                 <input
@@ -238,12 +238,12 @@ export const PeopleView: React.FC = () => {
                   placeholder="Ex: Ricardo, Renato, Mãe..."
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Telefone / WhatsApp (DDD + Número)
                 </label>
                 <input
@@ -251,12 +251,12 @@ export const PeopleView: React.FC = () => {
                   placeholder="Ex: 11988887777"
                   value={telefone}
                   onChange={(e) => setTelefone(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Observações
                 </label>
                 <input
@@ -264,7 +264,7 @@ export const PeopleView: React.FC = () => {
                   placeholder="Ex: Paga sempre dia 10, irmão..."
                   value={observacoes}
                   onChange={(e) => setObservacoes(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
 

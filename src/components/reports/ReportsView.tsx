@@ -116,7 +116,7 @@ export const ReportsView: React.FC = () => {
             <select
               value={responsavelSelecionadoId}
               onChange={(e) => setResponsavelSelecionadoId(e.target.value)}
-              className="px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-[#17212F] dark:text-slate-200"
+              className="px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-bold text-[#17212F] dark:text-white shadow-xs focus:outline-none focus:border-[#1677E8]"
             >
               {responsaveis.map((r) => (
                 <option key={r.id} value={r.id}>
@@ -156,7 +156,7 @@ export const ReportsView: React.FC = () => {
       </div>
 
       {/* Visual Report Sheet (Printable A4 / Card Preview) */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-[#E2E8F0] dark:border-slate-800 shadow-sm p-6 max-w-xl mx-auto font-sans">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 shadow-sm p-6 max-w-xl mx-auto font-sans">
         {/* Printable Header */}
         <div className="border-b-2 border-[#1677E8] pb-4 mb-4 flex items-center justify-between">
           <div>
@@ -168,8 +168,8 @@ export const ReportsView: React.FC = () => {
             </h1>
           </div>
           <div className="text-right">
-            <span className="text-xs text-[#64748B] block">Responsável:</span>
-            <strong className="text-sm font-bold text-[#123B67] dark:text-white">
+            <span className="text-xs text-[#123B67] font-semibold block">Responsável:</span>
+            <strong className="text-base font-extrabold text-[#123B67] dark:text-white">
               {responsavel?.nome}
             </strong>
           </div>
@@ -177,7 +177,7 @@ export const ReportsView: React.FC = () => {
 
         {/* Items Table */}
         <div className="space-y-2 mb-5">
-          <div className="text-xs font-bold uppercase tracking-wider text-[#64748B] pb-1 border-b border-[#E2E8F0] dark:border-slate-800 flex justify-between">
+          <div className="text-xs font-bold uppercase tracking-wider text-[#123B67] dark:text-slate-300 pb-1.5 border-b-2 border-slate-200 dark:border-slate-800 flex justify-between">
             <span>Descrição do Lançamento</span>
             <span>Valor</span>
           </div>
@@ -187,23 +187,23 @@ export const ReportsView: React.FC = () => {
               Nenhuma despesa registrada para {responsavel?.nome} nesta fatura.
             </div>
           ) : (
-            <div className="divide-y divide-[#E2E8F0] dark:divide-slate-800">
+            <div className="divide-y divide-slate-200 dark:divide-slate-800">
               {reportItems.map((item, idx) => (
-                <div key={idx} className="py-2 flex items-center justify-between text-xs">
+                <div key={idx} className="py-2.5 flex items-center justify-between text-xs">
                   <div>
-                    <span className="font-semibold text-[#17212F] dark:text-slate-200 block">
+                    <span className="font-bold text-sm text-[#17212F] dark:text-slate-100 block">
                       {item.descricao}
                       {item.totalParcelas > 1 && (
-                        <span className="ml-1 text-[#64748B] font-normal">
+                        <span className="ml-1.5 text-xs text-[#1677E8] font-bold">
                           ({item.parcelaAtual}/{item.totalParcelas})
                         </span>
                       )}
                     </span>
-                    <span className="text-[10px] text-[#64748B]">
+                    <span className={`text-[11px] font-bold ${item.paga ? 'text-[#16A765]' : 'text-amber-600'}`}>
                       {item.paga ? 'Quitado' : 'Pendente'}
                     </span>
                   </div>
-                  <strong className="text-[#17212F] dark:text-white font-bold tabular-nums">
+                  <strong className="text-sm font-extrabold text-[#17212F] dark:text-white tabular-nums">
                     {formatCurrency(item.valor)}
                   </strong>
                 </div>
@@ -213,24 +213,24 @@ export const ReportsView: React.FC = () => {
         </div>
 
         {/* Totals Summary */}
-        <div className="bg-[#F4F7FB] dark:bg-slate-800/60 rounded-xl p-4 space-y-1.5 border border-[#E2E8F0] dark:border-slate-800">
-          <div className="flex justify-between text-xs text-[#64748B] dark:text-slate-400">
+        <div className="bg-[#F4F7FB] dark:bg-slate-800/60 rounded-xl p-4 space-y-2 border-2 border-slate-200 dark:border-slate-800">
+          <div className="flex justify-between text-xs font-semibold text-[#123B67] dark:text-slate-300">
             <span>Subtotal Geral:</span>
-            <strong className="tabular-nums text-[#17212F] dark:text-white">
+            <strong className="tabular-nums text-sm font-bold text-[#17212F] dark:text-white">
               {formatCurrency(subtotalPessoa)}
             </strong>
           </div>
 
           {totalPagoPessoa > 0 && (
-            <div className="flex justify-between text-xs text-[#16A765]">
+            <div className="flex justify-between text-xs font-bold text-[#16A765]">
               <span>Valor já pago:</span>
-              <strong className="tabular-nums">− {formatCurrency(totalPagoPessoa)}</strong>
+              <strong className="tabular-nums text-sm">− {formatCurrency(totalPagoPessoa)}</strong>
             </div>
           )}
 
-          <div className="flex justify-between text-sm font-extrabold text-[#123B67] dark:text-blue-300 pt-2 border-t border-[#E2E8F0] dark:border-slate-700">
+          <div className="flex justify-between text-sm font-black text-[#123B67] dark:text-blue-300 pt-2 border-t-2 border-slate-200 dark:border-slate-700">
             <span>TOTAL A PAGAR:</span>
-            <span className="tabular-nums text-base text-[#1677E8] dark:text-blue-400">{formatCurrency(totalPendentePessoa)}</span>
+            <span className="tabular-nums text-lg font-black text-[#1677E8] dark:text-blue-400">{formatCurrency(totalPendentePessoa)}</span>
           </div>
         </div>
 

@@ -169,19 +169,19 @@ export const ForecastView: React.FC = () => {
                   <Calendar className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="font-bold text-[#17212F] dark:text-white block">
+                  <span className="font-extrabold text-sm text-[#17212F] dark:text-white block">
                     {formatMonthYear(item.mes)}
                   </span>
-                  <span className="text-[11px] text-[#64748B]">
-                    Rec: {formatCurrency(item.total_a_receber)} · Desp:{' '}
-                    {formatCurrency(item.total_minha_parte_cartao + item.total_contas_pagar)}
+                  <span className="text-xs text-[#123B67] dark:text-slate-200 font-medium">
+                    Rec: <strong className="text-[#1677E8]">{formatCurrency(item.total_a_receber)}</strong> · Desp:{' '}
+                    <strong className="text-rose-600">{formatCurrency(item.total_minha_parte_cartao + item.total_contas_pagar)}</strong>
                   </span>
                 </div>
               </div>
 
               <div className="text-right">
                 <div
-                  className={`text-sm font-bold tabular-nums ${
+                  className={`text-base font-black tabular-nums ${
                     item.saldo_previsto >= 0
                       ? 'text-[#16A765] dark:text-emerald-400'
                       : 'text-rose-600 dark:text-rose-400'
@@ -190,7 +190,7 @@ export const ForecastView: React.FC = () => {
                   {item.saldo_previsto >= 0 ? '+' : ''}
                   {formatCurrency(item.saldo_previsto)}
                 </div>
-                <span className="text-[10px] text-[#64748B] block tabular-nums">
+                <span className="text-xs font-bold text-[#123B67] dark:text-slate-300 block tabular-nums">
                   Acumulado: {formatCurrency(item.saldo_acumulado)}
                 </span>
               </div>

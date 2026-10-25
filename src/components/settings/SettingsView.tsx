@@ -15,6 +15,8 @@ import {
   CheckCircle2,
   AlertCircle,
   CloudCheck,
+  Eye,
+  EyeOff,
 } from 'lucide-react';
 import { useFinance } from '../../context/FinanceContext';
 import { exportBackupJSON, importBackupJSON } from '../../services/storage';
@@ -48,6 +50,7 @@ export const SettingsView: React.FC = () => {
   // Supabase connection configuration state
   const [customUrl, setCustomUrl] = useState('');
   const [customKey, setCustomKey] = useState('');
+  const [showKey, setShowKey] = useState(false);
   const [testResult, setTestResult] = useState<{ success: boolean; message: string } | null>(null);
   const [testingConnection, setTestingConnection] = useState(false);
   const [syncingCloud, setSyncingCloud] = useState(false);
@@ -165,9 +168,9 @@ export const SettingsView: React.FC = () => {
           A chave PIX cadastrada é incluída automaticamente nos relatórios compartilhados pelo WhatsApp.
         </p>
 
-        <form onSubmit={handleSaveConfigs} className="space-y-3">
+        <form onSubmit={handleSaveConfigs} className="space-y-3.5">
           <div>
-            <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
               Chave PIX Padrão
             </label>
             <input
@@ -175,12 +178,12 @@ export const SettingsView: React.FC = () => {
               placeholder="Ex: renatosilvambio@gmail.com, CPF ou telefone"
               value={chavePix}
               onChange={(e) => setChavePix(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+              className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
               Nome do Titular da Conta
             </label>
             <input
@@ -188,14 +191,14 @@ export const SettingsView: React.FC = () => {
               placeholder="Ex: Renato"
               value={donoNome}
               onChange={(e) => setDonoNome(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+              className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
             />
           </div>
 
           <div className="pt-1 flex items-center justify-between">
             <button
               type="submit"
-              className="px-4 py-2 rounded-xl bg-[#1677E8] hover:bg-[#1265c7] text-white text-xs font-bold shadow-sm active:scale-95 transition cursor-pointer"
+              className="px-5 py-2.5 rounded-xl bg-[#1677E8] hover:bg-[#1265c7] text-white text-xs font-bold shadow-sm active:scale-95 transition cursor-pointer"
             >
               {salvouConfig ? 'Salvo com Sucesso!' : 'Salvar Alterações'}
             </button>
@@ -290,7 +293,7 @@ export const SettingsView: React.FC = () => {
             A migração completa está salva no repositório em <code>supabase/migrations/20261024000000_init_meu_controle_financeiro.sql</code>. Ela cria as 8 tabelas relacionais com triggers, índices e políticas de Row Level Security (RLS).
           </p>
 
-          <div className="p-2.5 bg-white dark:bg-slate-900 rounded-lg border border-[#E2E8F0] dark:border-slate-800 font-mono text-[11px] text-[#123B67] dark:text-blue-300 overflow-x-auto max-h-32">
+          <div className="p-3 bg-white dark:bg-slate-900 rounded-xl border-2 border-slate-300 dark:border-slate-700 font-mono text-xs font-semibold text-[#123B67] dark:text-blue-200 overflow-x-auto max-h-36 shadow-inner">
             <code>
               {SUPABASE_SQL_SCHEMA.split('\n').slice(0, 15).join('\n')}
               {'\n-- ... [8 tabelas relacionais + Índices + RLS + Triggers + Realtime]'}
@@ -299,15 +302,15 @@ export const SettingsView: React.FC = () => {
         </div>
 
         {/* Credentials Form (Optional dynamic override) */}
-        <form onSubmit={handleSaveSupabaseConfig} className="p-4 rounded-xl border border-[#E2E8F0] dark:border-slate-800 bg-white dark:bg-slate-900 space-y-3 text-xs">
-          <div className="flex items-center gap-1.5 font-bold text-[#123B67] dark:text-white">
+        <form onSubmit={handleSaveSupabaseConfig} className="p-4 sm:p-5 rounded-2xl border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
+          <div className="flex items-center gap-2 font-bold text-sm sm:text-base text-[#123B67] dark:text-white">
             <Globe className="w-4 h-4 text-[#1677E8]" />
             <span>Configuração de Conexão Supabase</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <div>
-              <label className="block font-semibold text-[#64748B] mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Project URL (VITE_SUPABASE_URL)
               </label>
               <input
@@ -315,26 +318,36 @@ export const SettingsView: React.FC = () => {
                 placeholder="https://xyzcompany.supabase.co"
                 value={customUrl}
                 onChange={(e) => setCustomUrl(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               />
             </div>
             <div>
-              <label className="block font-semibold text-[#64748B] mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Anon Public Key (VITE_SUPABASE_ANON_KEY)
               </label>
-              <input
-                type="password"
-                placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-                value={customKey}
-                onChange={(e) => setCustomKey(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
-              />
+              <div className="relative">
+                <input
+                  type={showKey ? 'text' : 'password'}
+                  placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  value={customKey}
+                  onChange={(e) => setCustomKey(e.target.value)}
+                  className="w-full px-3.5 py-2.5 pr-10 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold font-mono text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowKey(!showKey)}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-[#1677E8] p-1 rounded-md transition cursor-pointer"
+                  title={showKey ? 'Ocultar chave' : 'Mostrar chave'}
+                >
+                  {showKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
           </div>
 
           {testResult && (
             <div
-              className={`p-2.5 rounded-xl border text-xs flex items-center gap-2 ${
+              className={`p-3 rounded-xl border text-xs font-semibold flex items-center gap-2 ${
                 testResult.success
                   ? 'bg-[#E8F8F0] border-[#BBEBD0] text-[#16A765]'
                   : 'bg-rose-50 border-rose-200 text-rose-600'
@@ -350,7 +363,7 @@ export const SettingsView: React.FC = () => {
               type="button"
               onClick={handleTestConnection}
               disabled={testingConnection}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[#E2E8F0] hover:bg-[#E8F2FF] text-[#123B67] text-xs font-bold transition cursor-pointer disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-700 hover:bg-[#E8F2FF] text-[#123B67] dark:text-slate-200 text-xs font-bold transition cursor-pointer disabled:opacity-50"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${testingConnection ? 'animate-spin text-[#1677E8]' : ''}`} />
               {testingConnection ? 'Testando...' : 'Testar Conexão'}
@@ -358,7 +371,7 @@ export const SettingsView: React.FC = () => {
 
             <button
               type="submit"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#1677E8] hover:bg-[#1265c7] text-white text-xs font-bold transition cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#1677E8] hover:bg-[#1265c7] text-white text-xs font-bold transition shadow-sm cursor-pointer"
             >
               Salvar Credenciais
             </button>

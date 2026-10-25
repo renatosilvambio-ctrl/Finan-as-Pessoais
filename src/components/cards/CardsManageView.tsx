@@ -161,23 +161,23 @@ export const CardsManageView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs bg-[#F4F7FB] dark:bg-slate-800/40 p-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-800">
+              <div className="grid grid-cols-2 gap-2 text-xs bg-[#F4F7FB] dark:bg-slate-800/60 p-3 rounded-xl border-2 border-[#E2E8F0] dark:border-slate-700">
                 <div>
-                  <span className="text-[#64748B] block text-[10px]">Fechamento:</span>
-                  <strong className="text-[#17212F] dark:text-slate-200">
+                  <span className="text-[#123B67] dark:text-slate-300 block text-xs font-bold">Fechamento:</span>
+                  <strong className="text-[#17212F] dark:text-white text-sm font-extrabold">
                     Todo dia {card.dia_fechamento}
                   </strong>
                 </div>
                 <div>
-                  <span className="text-[#64748B] block text-[10px]">Vencimento:</span>
-                  <strong className="text-[#17212F] dark:text-slate-200">
+                  <span className="text-[#123B67] dark:text-slate-300 block text-xs font-bold">Vencimento:</span>
+                  <strong className="text-[#17212F] dark:text-white text-sm font-extrabold">
                     Todo dia {card.dia_vencimento}
                   </strong>
                 </div>
                 {card.limite && (
-                  <div className="col-span-2 pt-1 border-t border-[#E2E8F0] dark:border-slate-700 flex justify-between">
-                    <span className="text-[#64748B] text-[10px]">Limite Total:</span>
-                    <strong className="tabular-nums text-[#17212F] dark:text-slate-300">
+                  <div className="col-span-2 pt-2 border-t border-[#E2E8F0] dark:border-slate-700 flex justify-between items-center">
+                    <span className="text-[#123B67] dark:text-slate-300 text-xs font-bold">Limite Total:</span>
+                    <strong className="tabular-nums text-sm font-extrabold text-[#1677E8] dark:text-blue-300">
                       {formatCurrency(card.limite)}
                     </strong>
                   </div>
@@ -185,8 +185,8 @@ export const CardsManageView: React.FC = () => {
               </div>
 
               <div className="mt-2.5 pt-2 flex items-center justify-between text-xs text-[#64748B]">
-                <span>Faturas futuras a vencer:</span>
-                <strong className="tabular-nums font-bold text-[#1677E8] dark:text-white">
+                <span className="font-semibold text-[#123B67] dark:text-slate-300">Faturas futuras a vencer:</span>
+                <strong className="tabular-nums font-extrabold text-sm text-[#1677E8] dark:text-white">
                   {formatCurrency(totalAtivo)}
                 </strong>
               </div>
@@ -198,7 +198,7 @@ export const CardsManageView: React.FC = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4">
-          <div className="w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-[#E2E8F0] dark:border-slate-800 p-5">
+          <div className="w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border-2 border-slate-200 dark:border-slate-800 p-5">
             <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0] dark:border-slate-800">
               <h3 className="font-bold text-base text-[#123B67] dark:text-white">
                 {editingCard ? 'Editar Cartão' : 'Novo Cartão'}
@@ -211,9 +211,9 @@ export const CardsManageView: React.FC = () => {
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="py-4 space-y-3">
+            <form onSubmit={handleSubmit} className="py-4 space-y-3.5">
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Nome do Cartão *
                 </label>
                 <input
@@ -222,12 +222,12 @@ export const CardsManageView: React.FC = () => {
                   placeholder="Ex: Nubank Ultravioleta, Itaú Click..."
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Apelido Curto
                 </label>
                 <input
@@ -235,13 +235,13 @@ export const CardsManageView: React.FC = () => {
                   placeholder="Ex: Roxinho, Cartão Preto..."
                   value={apelido}
                   onChange={(e) => setApelido(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-2.5">
                 <div>
-                  <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                     Dia Fechamento
                   </label>
                   <input
@@ -251,11 +251,11 @@ export const CardsManageView: React.FC = () => {
                     required
                     value={diaFechamento}
                     onChange={(e) => setDiaFechamento(parseInt(e.target.value, 10))}
-                    className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-bold"
+                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-bold text-[#17212F] dark:text-white focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                     Dia Vencimento
                   </label>
                   <input
@@ -265,13 +265,13 @@ export const CardsManageView: React.FC = () => {
                     required
                     value={diaVencimento}
                     onChange={(e) => setDiaVencimento(parseInt(e.target.value, 10))}
-                    className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-bold"
+                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-bold text-[#17212F] dark:text-white focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Limite de Crédito (R$) Opcional
                 </label>
                 <input
@@ -280,7 +280,7 @@ export const CardsManageView: React.FC = () => {
                   placeholder="Ex: 15000"
                   value={limiteInput}
                   onChange={(e) => setLimiteInput(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm tabular-nums"
+                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold tabular-nums text-[#17212F] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
 

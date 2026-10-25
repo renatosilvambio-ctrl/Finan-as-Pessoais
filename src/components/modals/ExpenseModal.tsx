@@ -174,7 +174,7 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
         <form onSubmit={handleSubmit} className="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
           {/* Descrição */}
           <div>
-            <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
               Produto ou Descrição *
             </label>
             <input
@@ -183,20 +183,20 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
               placeholder="Ex: TV 4K Sala, Pizzaria, Tênis..."
               value={descricao}
               onChange={(e) => setDescricao(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+              className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
             />
           </div>
 
           {/* Grid: Responsável e Cartão */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Responsável pela Despesa *
               </label>
               <select
                 value={responsavelId}
                 onChange={(e) => setResponsavelId(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               >
                 {responsaveis.map((r) => (
                   <option key={r.id} value={r.id}>
@@ -207,13 +207,13 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Cartão de Crédito *
               </label>
               <select
                 value={cartaoId}
                 onChange={(e) => setCartaoId(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               >
                 {cartoes.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -227,7 +227,7 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
           {/* Grid: Valor Total e Categoria */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Valor Total (R$) *
               </label>
               <input
@@ -239,18 +239,18 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
                 placeholder="0,00"
                 value={valorTotalInput}
                 onChange={(e) => setValorTotalInput(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold tabular-nums focus:outline-none focus:ring-2 focus:ring-[#1677E8] disabled:opacity-60"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-base font-extrabold tabular-nums placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 disabled:opacity-60 transition"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Categoria
               </label>
               <select
                 value={categoria}
                 onChange={(e) => setCategoria(e.target.value as CategoriaDespesaCartao)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               >
                 {CATEGORIAS.map((cat) => (
                   <option key={cat} value={cat}>
@@ -265,13 +265,13 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
           {!editingDespesa && (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Parcelas
                 </label>
                 <select
                   value={totalParcelas}
                   onChange={(e) => setTotalParcelas(parseInt(e.target.value, 10))}
-                  className="w-full px-3 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 >
                   <option value={1}>1x (À vista na fatura)</option>
                   {Array.from({ length: 35 }, (_, i) => i + 2).map((n) => (
@@ -283,26 +283,26 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Data da Compra
                 </label>
                 <input
                   type="date"
                   value={dataCompra}
                   onChange={(e) => setDataCompra(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Primeira Fatura
                 </label>
                 <input
                   type="month"
                   value={primeiroMes}
                   onChange={(e) => setPrimeiroMes(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
             </div>
@@ -317,7 +317,7 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
               </div>
               <div className="text-xs text-[#123B67] dark:text-blue-300">
                 {totalParcelas} parcelas de{' '}
-                <strong className="tabular-nums text-[#1677E8]">{formatCurrency(simulacaoParcelas[0])}</strong>
+                <strong className="tabular-nums text-[#1677E8] font-bold">{formatCurrency(simulacaoParcelas[0])}</strong>
                 {simulacaoParcelas[simulacaoParcelas.length - 1] !== simulacaoParcelas[0] && (
                   <span>
                     {' '}(última parcela de {formatCurrency(simulacaoParcelas[simulacaoParcelas.length - 1])})
@@ -333,7 +333,7 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
 
           {/* Observações */}
           <div>
-            <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
               Observações (Opcional)
             </label>
             <input
@@ -341,7 +341,7 @@ export const ExpenseModal: React.FC<ExpenseModalProps> = ({
               placeholder="Ex: Presente de aniversário, compra compartilhada..."
               value={observacoes}
               onChange={(e) => setObservacoes(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+              className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
             />
           </div>
 

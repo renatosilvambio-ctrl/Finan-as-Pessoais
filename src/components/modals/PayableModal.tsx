@@ -145,7 +145,7 @@ export const PayableModal: React.FC<PayableModalProps> = ({
         <form onSubmit={handleSubmit} className="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
           {/* Descrição */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
               Descrição da Despesa *
             </label>
             <input
@@ -154,20 +154,20 @@ export const PayableModal: React.FC<PayableModalProps> = ({
               placeholder="Ex: Aluguel, Energia Enel, Internet Fibra..."
               value={descricao}
               onChange={(e) => setDescricao(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
+              className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 transition"
             />
           </div>
 
           {/* Categoria e Valor */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Categoria
               </label>
               <select
                 value={categoria}
                 onChange={(e) => setCategoria(e.target.value as CategoriaContaPagar)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 transition"
               >
                 {CATEGORIAS.map((cat) => (
                   <option key={cat} value={cat}>
@@ -178,7 +178,7 @@ export const PayableModal: React.FC<PayableModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Valor da Conta (R$) *
               </label>
               <input
@@ -189,7 +189,7 @@ export const PayableModal: React.FC<PayableModalProps> = ({
                 placeholder="0,00"
                 value={valorInput}
                 onChange={(e) => setValorInput(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold tabular-nums focus:outline-none focus:ring-2 focus:ring-rose-500"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-base font-extrabold tabular-nums placeholder:text-slate-400 focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 transition"
               />
             </div>
           </div>
@@ -197,26 +197,26 @@ export const PayableModal: React.FC<PayableModalProps> = ({
           {/* Vencimento e Mês de Competência */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Data de Vencimento
               </label>
               <input
                 type="date"
                 value={dataVencimento}
                 onChange={(e) => setDataVencimento(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 transition"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Mês de Competência
               </label>
               <input
                 type="month"
                 value={mesCompetencia}
                 onChange={(e) => setMesCompetencia(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 transition"
               />
             </div>
           </div>
@@ -224,13 +224,13 @@ export const PayableModal: React.FC<PayableModalProps> = ({
           {/* Recorrência e Status */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Recorrência
               </label>
               <select
                 value={recorrencia}
                 onChange={(e) => setRecorrencia(e.target.value as any)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 transition"
               >
                 <option value="mensal">Conta Fixa Mensal (Todo Mês)</option>
                 <option value="nenhuma">Lançamento Único</option>
@@ -238,13 +238,13 @@ export const PayableModal: React.FC<PayableModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Status do Pagamento
               </label>
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as StatusContaPagar)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 transition"
               >
                 <option value="pendente">Pendente</option>
                 <option value="pago">Já Pago</option>
@@ -257,7 +257,7 @@ export const PayableModal: React.FC<PayableModalProps> = ({
 
           {/* Observações */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
               Observações (Opcional)
             </label>
             <input
@@ -265,7 +265,7 @@ export const PayableModal: React.FC<PayableModalProps> = ({
               placeholder="Ex: Débito automático, código de barras..."
               value={observacoes}
               onChange={(e) => setObservacoes(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
+              className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 transition"
             />
           </div>
 

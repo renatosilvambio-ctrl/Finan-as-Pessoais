@@ -19,6 +19,154 @@
     background-color: #F4F7FB;
     color: #17212F;
   }
+
+  /* Base form fields typography and transition */
+  input, select, textarea {
+    font-weight: 600;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  /* Universal Placeholder Styling (#94A3B8) with clear contrast */
+  input::placeholder,
+  textarea::placeholder {
+    color: #94A3B8 !important;
+    -webkit-text-fill-color: #94A3B8 !important;
+    opacity: 1 !important;
+    font-weight: 400;
+  }
+
+  /* Global Focus Highlight with Brand Blue (#1677E8) preserving size and radius */
+  input:focus,
+  select:focus,
+  textarea:focus,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    border-color: #1677E8 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(22, 119, 232, 0.25) !important;
+  }
+}
+
+/* High Contrast Styling for Dark Background Fields & Dark Mode (#F1F5F9) */
+@media (prefers-color-scheme: dark) {
+  input,
+  select,
+  textarea {
+    color: #F1F5F9 !important;
+    -webkit-text-fill-color: #F1F5F9 !important;
+    caret-color: #F1F5F9 !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #94A3B8 !important;
+    -webkit-text-fill-color: #94A3B8 !important;
+    opacity: 1 !important;
+    font-weight: 400;
+  }
+
+  /* Browser Autofill styling in dark mode */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: #F1F5F9 !important;
+    caret-color: #F1F5F9 !important;
+    -webkit-box-shadow: 0 0 0 1000px #1E293B inset !important;
+    box-shadow: 0 0 0 1000px #1E293B inset !important;
+    transition: background-color 5000000s ease-in-out 0s;
+  }
+
+  /* Select dropdown options */
+  select option {
+    background-color: #1E293B !important;
+    color: #F1F5F9 !important;
+  }
+}
+
+/* Explicit class-based dark styling for inputs on dark backgrounds */
+.dark input,
+.dark select,
+.dark textarea,
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea,
+input[class*="bg-slate-8"],
+input[class*="bg-slate-9"],
+input[class*="bg-zinc-8"],
+input[class*="bg-zinc-9"],
+input[class*="bg-gray-8"],
+input[class*="bg-gray-9"],
+input[class*="bg-neutral-8"],
+input[class*="bg-neutral-9"],
+input[class*="bg-black"],
+input[class*="bg-[#123B67]"],
+textarea[class*="bg-slate-8"],
+textarea[class*="bg-slate-9"],
+textarea[class*="bg-zinc-8"],
+textarea[class*="bg-zinc-9"],
+select[class*="bg-slate-8"],
+select[class*="bg-slate-9"],
+select[class*="bg-zinc-8"],
+select[class*="bg-zinc-9"] {
+  color: #F1F5F9 !important;
+  -webkit-text-fill-color: #F1F5F9 !important;
+  caret-color: #F1F5F9 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder,
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder,
+input[class*="bg-slate-8"]::placeholder,
+input[class*="bg-slate-9"]::placeholder,
+textarea[class*="bg-slate-8"]::placeholder,
+textarea[class*="bg-slate-9"]::placeholder {
+  color: #94A3B8 !important;
+  -webkit-text-fill-color: #94A3B8 !important;
+  opacity: 1 !important;
+  font-weight: 400;
+}
+
+.dark select option,
+[data-theme="dark"] select option,
+select[class*="bg-slate-8"] option,
+select[class*="bg-slate-9"] option {
+  background-color: #1E293B !important;
+  color: #F1F5F9 !important;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark textarea:-webkit-autofill,
+.dark select:-webkit-autofill,
+input[class*="bg-slate-8"]:-webkit-autofill,
+input[class*="bg-slate-9"]:-webkit-autofill {
+  -webkit-text-fill-color: #F1F5F9 !important;
+  caret-color: #F1F5F9 !important;
+  -webkit-box-shadow: 0 0 0 1000px #1E293B inset !important;
+  box-shadow: 0 0 0 1000px #1E293B inset !important;
+  transition: background-color 5000000s ease-in-out 0s;
+}
+
+/* Light mode defaults when NOT in dark background */
+@media (prefers-color-scheme: light) {
+  input:not([class*="bg-slate-8"]):not([class*="bg-slate-9"]):not([class*="bg-black"]):not([class*="bg-[#123B67]"]),
+  select:not([class*="bg-slate-8"]):not([class*="bg-slate-9"]),
+  textarea:not([class*="bg-slate-8"]):not([class*="bg-slate-9"]) {
+    color: #17212F;
+    -webkit-text-fill-color: #17212F;
+  }
+
+  input:not([class*="bg-slate-8"]):-webkit-autofill,
+  textarea:not([class*="bg-slate-8"]):-webkit-autofill,
+  select:not([class*="bg-slate-8"]):-webkit-autofill {
+    -webkit-text-fill-color: #17212F !important;
+    transition: background-color 5000000s ease-in-out 0s;
+  }
 }
 
 /* Safe area insets for notched iPhones & Android navigation bars */

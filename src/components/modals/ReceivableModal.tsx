@@ -177,7 +177,7 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
         <form onSubmit={handleSubmit} className="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
           {/* Descrição */}
           <div>
-            <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
               Descrição do Recebimento *
             </label>
             <input
@@ -186,14 +186,14 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
               placeholder="Ex: Salário Mensal, Vale, Dívida do Carlos..."
               value={descricao}
               onChange={(e) => setDescricao(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
             />
           </div>
 
           {/* Pagador e Categoria */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Pagador / Devedor
               </label>
               <input
@@ -201,18 +201,18 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
                 placeholder="Ex: Empresa, Carlos, etc."
                 value={pagadorNome}
                 onChange={(e) => setPagadorNome(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Categoria
               </label>
               <select
                 value={categoria}
                 onChange={(e) => setCategoria(e.target.value as CategoriaRecebimento)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               >
                 {CATEGORIAS.map((cat) => (
                   <option key={cat} value={cat}>
@@ -226,7 +226,7 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
           {/* Valor e Data Prevista */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 {isDividaParcelada ? 'Valor Total da Dívida (R$) *' : 'Valor Previsto (R$) *'}
               </label>
               <input
@@ -237,19 +237,19 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
                 placeholder="0,00"
                 value={valorInput}
                 onChange={(e) => setValorInput(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-base font-extrabold tabular-nums placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Data Prevista
               </label>
               <input
                 type="date"
                 value={dataPrevista}
                 onChange={(e) => setDataPrevista(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               />
             </div>
           </div>
@@ -257,25 +257,25 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
           {/* Mês de Competência e Recorrência */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Mês de Competência
               </label>
               <input
                 type="month"
                 value={mesCompetencia}
                 onChange={(e) => handleMesCompetenciaChange(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Tipo de Recorrência
               </label>
               <select
                 value={recorrencia}
                 onChange={(e) => handleRecorrenciaChange(e.target.value as any)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               >
                 <option value="nenhuma">Lançamento Avulso</option>
                 <option value="quinto_dia_util">5º Dia Útil (Automático Brasil)</option>
@@ -286,18 +286,18 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
 
           {/* Info for 5th business day */}
           {recorrencia === 'quinto_dia_util' && (
-            <div className="p-3 rounded-xl bg-[#E8F2FF] dark:bg-blue-950/40 border border-[#BFDBFE] dark:border-blue-800 text-xs text-[#123B67] dark:text-blue-300 flex items-center gap-2">
+            <div className="p-3.5 rounded-xl bg-[#E8F2FF] dark:bg-blue-950/40 border border-[#BFDBFE] dark:border-blue-800 text-xs text-[#123B67] dark:text-blue-300 flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#1677E8] shrink-0" />
               <span>
                 Calculado automaticamente desconsiderando fins de semana e feriados nacionais. Data prevista:{' '}
-                <strong>{dataPrevista}</strong>.
+                <strong className="font-bold text-[#1677E8] dark:text-white">{dataPrevista}</strong>.
               </span>
             </div>
           )}
 
           {/* Dívida parcelada toggle */}
           {!editingConta && (
-            <div className="p-3.5 rounded-xl border border-[#E2E8F0] dark:border-slate-800 bg-[#F4F7FB] dark:bg-slate-800/30">
+            <div className="p-3.5 rounded-xl border-2 border-[#CBD5E1] dark:border-slate-700 bg-[#F4F7FB] dark:bg-slate-800/50">
               <label className="flex items-center gap-2.5 cursor-pointer">
                 <input
                   type="checkbox"
@@ -305,20 +305,20 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
                   onChange={(e) => setIsDividaParcelada(e.target.checked)}
                   className="w-4 h-4 text-[#1677E8] rounded focus:ring-[#1677E8]"
                 />
-                <span className="text-xs font-semibold text-[#123B67] dark:text-slate-200">
+                <span className="text-xs font-bold text-[#123B67] dark:text-slate-200">
                   Dívida parcelada de terceiro (Ex: 10 parcelas mensais de R$ 500)
                 </span>
               </label>
 
               {isDividaParcelada && (
                 <div className="mt-3 flex items-center gap-3">
-                  <span className="text-xs text-[#64748B] dark:text-slate-400">
+                  <span className="text-xs font-semibold text-[#123B67] dark:text-slate-300">
                     Número de parcelas:
                   </span>
                   <select
                     value={totalParcelas}
                     onChange={(e) => setTotalParcelas(parseInt(e.target.value, 10))}
-                    className="px-3 py-1.5 rounded-lg border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-sm font-bold text-[#123B67]"
+                    className="px-3 py-1.5 rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-bold text-[#123B67]"
                   >
                     {[2, 3, 4, 5, 6, 8, 10, 12, 18, 24, 36].map((n) => (
                       <option key={n} value={n}>
@@ -334,13 +334,13 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
           {/* Status & Valor Recebido */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+              <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                 Status
               </label>
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as StatusRecebimento)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
               >
                 <option value="a_receber">A Receber</option>
                 <option value="recebido">Recebido Integralmente</option>
@@ -352,7 +352,7 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
 
             {status === 'parcial' && (
               <div>
-                <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
                   Valor já Recebido (R$)
                 </label>
                 <input
@@ -361,7 +361,7 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
                   placeholder="0,00"
                   value={valorRecebidoInput}
                   onChange={(e) => setValorRecebidoInput(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+                  className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
                 />
               </div>
             )}
@@ -369,7 +369,7 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
 
           {/* Observações */}
           <div>
-            <label className="block text-xs font-semibold text-[#123B67] dark:text-slate-300 mb-1">
+            <label className="block text-xs font-bold text-[#123B67] dark:text-slate-200 mb-1.5">
               Observações (Opcional)
             </label>
             <input
@@ -377,7 +377,7 @@ export const ReceivableModal: React.FC<ReceivableModalProps> = ({
               placeholder="Ex: Acordo verbal, recibo pendente..."
               value={observacoes}
               onChange={(e) => setObservacoes(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8F0] dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1677E8]"
+              className="w-full px-4 py-2.5 rounded-xl border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#1677E8] focus:ring-2 focus:ring-[#1677E8]/20 transition"
             />
           </div>
 
